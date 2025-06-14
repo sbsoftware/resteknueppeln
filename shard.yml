@@ -1,0 +1,21 @@
+name: benny_app
+version: 0.1.0
+
+authors:
+  - Stefan Bilharz <stefan@sbsoftware.de>
+
+targets:
+  benny_app:
+    main: src/benny_app.cr
+
+crystal: '>= 1.16.3'
+
+license: MIT
+
+dependencies:
+  crumble-turbo:
+    github: sbsoftware/crumble-turbo
+  orma:
+    github: sbsoftware/orma
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
