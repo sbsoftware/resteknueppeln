@@ -17,6 +17,8 @@ class RecipeService
         beverages = non_alcoholic_beverages
       elsif !alc && alcoholic_beverages.any?
         beverages = alcoholic_beverages
+      elsif alc && non_alcoholic_beverages.any?
+        beverages = non_alcoholic_beverages
       else
         remaining_cl = 0
         return recipe
