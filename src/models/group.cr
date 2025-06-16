@@ -13,11 +13,27 @@ class Group < ApplicationRecord
     end
 
     record Template, uri_path : String do
+      css_class ButtonRow
+
       ToHtml.instance_template do
         form action: uri_path, method: "POST" do
-          button do
-            "Neues Rezept generieren"
+          div ButtonRow do
+            button do
+              "Neues Rezept generieren"
+            end
           end
+        end
+      end
+
+      style do
+        rule ButtonRow do
+          display Flex
+          justifyContent Center
+        end
+
+        rule ButtonRow >> button do
+          border 1.px, Solid, Black
+          padding 5.px
         end
       end
     end
