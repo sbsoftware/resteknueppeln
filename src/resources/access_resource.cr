@@ -55,6 +55,11 @@ class AccessResource < ApplicationResource
       return
     end
 
+    if GroupUser.where({"group_id" => group.id, "session_id" => ctx.session.id.to_s}).first?
+      redirect GroupsResource.uri_path(group.id)
+      return
+    end
+
     render AccessView.new(group)
   end
 
