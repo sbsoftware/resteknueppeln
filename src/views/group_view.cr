@@ -21,7 +21,7 @@ class GroupView
     end
 
     ToHtml.instance_template do
-      div ShareController, ShareController.share_action("click"), ShareController.url_value("https://splitters.money#{AccessResource.uri_path(group.access_token.value)}")do
+      div ShareController, ShareController.share_action("click"), ShareController.url_value("https://resteknueppeln.party#{AccessResource.uri_path(group.access_token.value)}")do
         Crumble::Material::Icon.new("share")
       end
     end
