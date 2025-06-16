@@ -1,12 +1,12 @@
-name: benny_app
+name: urlaub_app
 version: 0.1.0
 
 authors:
   - Stefan Bilharz <stefan@sbsoftware.de>
 
 targets:
-  benny_app:
-    main: src/benny_app.cr
+  urlaub_app:
+    main: src/urlaub_app.cr
 
 crystal: '>= 1.16.3'
 

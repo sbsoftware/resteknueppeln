@@ -1,3 +1,3 @@
 #!/bin/sh
 
-watchexec -r "crystal run src/benny_app.cr -- -p 3008"
+watchexec -r "crystal run src/urlaub_app.cr -- -p 3008"
