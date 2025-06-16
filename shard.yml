@@ -1,12 +1,12 @@
-name: urlaub_app
+name: resteknueppeln
 version: 0.1.0
 
 authors:
   - Stefan Bilharz <stefan@sbsoftware.de>
 
 targets:
-  urlaub_app:
-    main: src/urlaub_app.cr
+  resteknueppeln:
+    main: src/resteknueppeln.cr
 
 crystal: '>= 1.16.3'
 
