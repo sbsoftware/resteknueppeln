@@ -13,6 +13,7 @@ class GroupView
       type: :center_aligned
     )
 
+    group.create_group_beverage_action_template
     group.group_beverages_view
   end
 end
