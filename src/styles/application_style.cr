@@ -26,5 +26,11 @@ class ApplicationStyle < CSS::Stylesheet
       prop("outset", "none")
       backgroundColor "transparent"
     end
+
+    rule Crumble::Material::Card::Card do
+      height "auto"
+      minHeight 100.px
+      marginBottom 16.px
+    end
   end
 end

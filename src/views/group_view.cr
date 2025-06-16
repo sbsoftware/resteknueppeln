@@ -5,6 +5,9 @@ class GroupView
 
   def initialize(@ctx, @group); end
 
+  css_class Recipes
+  css_class BeverageFormContainer
+
   ToHtml.instance_template do
     Crumble::Material::TopAppBar.new(
       leading_icon: nil,
@@ -13,7 +16,21 @@ class GroupView
       type: :center_aligned
     )
 
-    group.create_group_beverage_action_template
+    div Recipes do
+      group.create_recipe_action_template
+      group.recipes_view
+    end
+    hr
+    div BeverageFormContainer do
+      group.create_group_beverage_action_template
+    end
+    hr
     group.group_beverages_view
+  end
+
+  style do
+    rule Recipes, BeverageFormContainer do
+      padding 16.px
+    end
   end
 end
