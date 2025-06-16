@@ -33,9 +33,9 @@ class RecipeService
     recipe
   end
 
-  NAME_PREFIXES = %w[Full Virgin Chaotic Yellow Half Despicable Favorite Simple Easy Generous Sparkling Mysterious]
-  NAME_MIDDLES = %w[Star Corner Table Head Maxi Lightning Boy Girl Sugar]
-  NAME_SUFFIXES = %w[Thrower Tank Destroyer Footgun Separator Channeler Daddy]
+  NAME_PREFIXES = %w[Full Virgin Chaotic Yellow Half Despicable Favorite Simple Easy Generous Sparkling Mysterious Bloody Massive]
+  NAME_MIDDLES = %w[Star Corner Table Head Maxi Sonja Lightning Boy Girl Sugar Felix Benny Mary Kevin Olga Maze Michelle Rapha Monja Steve Basti]
+  NAME_SUFFIXES = %w[Thrower Tank Destroyer Footgun Separator Channeler Daddy Enlarger Womanizer]
 
   def self.generate_name
     "#{NAME_PREFIXES.sample} #{NAME_MIDDLES.sample} #{NAME_SUFFIXES.sample}"

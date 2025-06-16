@@ -1,3 +1,5 @@
+require "base58"
+
 class GroupsResource < ApplicationResource
   def create
     unless body = ctx.request.body
@@ -14,7 +16,7 @@ class GroupsResource < ApplicationResource
     end
 
     if name
-      group = Group.create(name: name)
+      group = Group.create(name: name, access_token: Base58.encode(Random::Secure.random_bytes(9)))
 
       GroupUser.create(group_id: group.id, session_id: ctx.session.id.to_s)
 
@@ -24,6 +26,11 @@ class GroupsResource < ApplicationResource
 
   def show
     group = Group.find(id)
+
+    unless group.group_users.any? { |gu| gu.session_id == ctx.session.id.to_s }
+      redirect HomeResource.uri_path
+      return
+    end
 
     render GroupView.new(ctx: ctx, group: group)
   end

@@ -5,6 +5,28 @@ class GroupView
 
   def initialize(@ctx, @group); end
 
+  record ShareLink, group : Group do
+    stimulus_controller ShareController do
+      values url: String
+
+      action :share do |event|
+        event.preventDefault._call
+
+        if navigator.share
+          navigator.share({text: this.urlValue})
+        else
+          window.alert("Teilen auf diesem Gerät leider nicht möglich!")
+        end
+      end
+    end
+
+    ToHtml.instance_template do
+      div ShareController, ShareController.share_action("click"), ShareController.url_value("https://splitters.money#{AccessResource.uri_path(group.access_token.value)}")do
+        Crumble::Material::Icon.new("share")
+      end
+    end
+  end
+
   css_class Recipes
   css_class BeverageFormContainer
 
@@ -12,7 +34,7 @@ class GroupView
     Crumble::Material::TopAppBar.new(
       leading_icon: nil,
       headline: group.name,
-      trailing_icons: [] of Nil,
+      trailing_icons: [ShareLink.new(group)],
       type: :center_aligned
     )
 

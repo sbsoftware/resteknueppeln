@@ -1,11 +1,14 @@
 require "./group_beverage"
+require "./group_user"
 require "./recipe"
 
 class Group < ApplicationRecord
   column name : String
+  column access_token : String
 
   has_many_of GroupBeverage
   has_many_of Recipe
+  has_many_of GroupUser
 
   model_action :create_recipe, recipes_view do
     controller do
