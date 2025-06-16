@@ -1,3 +1,5 @@
-class ApplicationLayout < ToHtml::Layout
-  include Crumble::ContextView
+class ApplicationLayout < Crumble::Material::Layout
+  def top_app_bar
+    nil
+  end
 end

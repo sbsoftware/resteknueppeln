@@ -19,3 +19,5 @@ dependencies:
     github: sbsoftware/orma
   sqlite3:
     github: crystal-lang/crystal-sqlite3
+  crumble-material:
+    github: sbsoftware/crumble-material
