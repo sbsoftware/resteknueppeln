@@ -139,6 +139,7 @@ class Group < ApplicationRecord
   end
 
   css_class BeveragesHeading
+  css_class BeverageRow
 
   model_template :group_beverages_view do
     div BeveragesHeading do
@@ -147,9 +148,14 @@ class Group < ApplicationRecord
     div do
       group_beverages.each do |group_beverage|
         Crumble::Material::ListItem.to_html do
-          group_beverage.beverage.name
-          if group_beverage.beverage.alcoholic.value
-            " (alkoholisch)"
+          div BeverageRow do
+            group_beverage.beverage.name
+            if group_beverage.beverage.alcoholic.value
+              " (alkoholisch)"
+            end
+            group_beverage.remove_action_template.to_html do
+              Crumble::Material::Icon.new("delete")
+            end
           end
         end
       end
@@ -159,6 +165,11 @@ class Group < ApplicationRecord
   style do
     rule BeveragesHeading do
       padding 0, 16.px
+    end
+
+    rule BeverageRow do
+      display Flex
+      justifyContent SpaceBetween
     end
   end
 end
