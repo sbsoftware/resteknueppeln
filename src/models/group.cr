@@ -96,8 +96,14 @@ class Group < ApplicationRecord
       css_class Field
       css_class ButtonRow
 
+      stimulus_controller FormController do
+        action :reset do |event|
+          this.element.reset._call
+        end
+      end
+
       ToHtml.instance_template do
-        form action: uri_path, method: "POST" do
+        form FormController, FormController.reset_action("turbo:submit-end"), action: uri_path, method: "POST" do
           h3 { "Neues Getränk" }
           div Field do
             label { "Name:" }
