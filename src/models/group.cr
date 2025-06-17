@@ -49,7 +49,7 @@ class Group < ApplicationRecord
   model_template :recipes_view do
     h3 { "Rezepte" }
     div do
-      recipes.each do |recipe|
+      recipes.order_by_id!("DESC").each do |recipe|
         Crumble::Material::Card.new.to_html do
           Crumble::Material::Card::Title.new(recipe.name).to_html
           Crumble::Material::Card::SecondaryText.new.to_html do
@@ -152,7 +152,7 @@ class Group < ApplicationRecord
       h3 { "Verfügbare Getränke" }
     end
     div do
-      group_beverages.each do |group_beverage|
+      group_beverages.order_by_id!("DESC").each do |group_beverage|
         Crumble::Material::ListItem.to_html do
           div BeverageRow do
             group_beverage.beverage.name
